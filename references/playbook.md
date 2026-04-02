@@ -1,4 +1,4 @@
-# Xianyu Auto Ops Playbook
+# Xianyu Auto Ops Playbook v2
 
 ## 1. Best trigger examples
 
@@ -8,6 +8,10 @@ Use this skill for requests like:
 - 把这段产品介绍改成闲鱼更容易成交的版本
 - 给我 10 个闲鱼标题
 - 为这个二手商品做一套自动运营 SOP
+- 给我批量整理 20 个 SKU 的闲鱼文案
+- 按数码/家居/服饰分别给我模板
+- 帮我写闲鱼私聊自动回复话术
+- 给这个商品配一张广告海报提示词
 - Write a Xianyu listing package for this product
 - Turn these product specs into an Idle Fish sales post
 
@@ -28,25 +32,65 @@ Ask for or infer:
 
 If 20-30% of inputs are missing, continue with assumptions instead of blocking.
 
-## 3. Title patterns
+## 3. Category templates
+
+### Digital / 数码
+Focus on:
+- model and specs
+- battery / repair / warranty state
+- accessories included
+- authenticity and trust cues
+- suitable buyer scenario
+
+### Home / 家居
+Focus on:
+- dimensions
+- material / style
+- visible wear
+- pickup / delivery burden
+- where it fits in a home
+
+### Fashion / 服饰
+Focus on:
+- size and fit
+- material
+- seasonality
+- visible flaws
+- styling scenario
+
+### Virtual / 虚拟产品或服务
+Focus on:
+- what exactly is delivered
+- how delivery happens
+- whether support is included
+- account / usage boundaries
+- trust and compliance wording
+
+### Training / Side-hustle / AI services
+Focus on:
+- target buyer
+- what result they get
+- delivery format
+- onboarding speed
+- difference from generic competitors
+
+## 4. Title patterns
 
 ### Chinese title patterns
-
 1. `品牌名 + 商品名 + 成色说明 + 适合谁`
 2. `低价转 + 商品名 + 功能亮点 + 自提/包邮`
 3. `闲置出 + 商品名 + 配件齐全 + 性价比高`
+4. `适合新手/家用/学生党 + 商品名 + 省钱点`
 
 ### English title patterns
-
 1. `Brand + item + condition + use case`
 2. `Affordable + item + key benefit`
+3. `Well-kept + item + bundle included`
 
-## 4. Description formula
+## 5. Description formula
 
 ### Chinese
-
 Use this order:
-
 1. 开头一句说明是什么
 2. 为什么出 / 为什么值得买
 3. 成色与瑕疵说明
@@ -54,15 +98,13 @@ Use this order:
 5. 友好成交收口
 
 ### English
-
 Compress into:
-
 1. item summary
 2. condition
 3. delivery / bundle
 4. action line
 
-## 5. Reply template bank
+## 6. Reply template bank
 
 ### 还在吗
 在的，商品还在，方便的话我可以把细节图/使用情况再发你看。  
@@ -80,34 +122,50 @@ Yes, the flaw is disclosed clearly. It mainly is ___ and does not affect normal 
 看地区，近一点可以包，偏远地区可能需要补一点运费。  
 Depends on location. Nearby shipping may be included; remote areas may need extra shipping.
 
+### 安全交易
+建议直接走平台流程更稳妥，信息和发货也都更清楚。  
+Using the platform flow is safer for both sides and keeps shipping/details clearer.
+
 ### 成交推进
 如果你这边确定要，我可以今天帮你保留/安排发出。  
 If you want it, I can reserve it for you and arrange shipping today.
 
-## 6. Image prompt formula
+## 7. Poster / image prompt formulas
 
-For AI-generated cover visuals, use:
-
+### Platform-safe cover prompt
 `clean marketplace product cover, realistic product-centered composition, neutral or lightly branded background, clear lighting, no clutter, trustworthy second-hand sale style, high click-through visual hierarchy`
 
-For upgraded promotional style, use:
+### Promotional poster prompt
+`premium resale marketplace hero image, product-centered layout, strong contrast, clean typography-safe negative space, realistic details, modern ecommerce ad feel, high clarity, platform-friendly composition`
 
-`premium resale marketplace hero image, product-centered layout, strong contrast, clean typography-safe negative space, realistic details, platform-friendly composition`
+### 16:9 article cover add-on
+Append:
+`16:9 horizontal composition, strong headline-safe empty space, cover-image friendly, no watermark, no messy text`
 
-## 7. Batch mode
+## 8. Batch mode
 
 When the user gives multiple products:
-
 - keep each item compact
 - one title set + one short description + one price idea + one reply note per SKU
 - avoid writing long essays for every item
+- group by category if helpful
 
-## 8. Suggested MVP extensions
+Recommended compact structure:
+- SKU:
+- Category:
+- CN title options:
+- Short CN description:
+- EN summary:
+- Price idea:
+- Reply note:
+- Image direction:
+
+## 9. Suggested v2 extensions
 
 A more executable future version of this skill can add:
-
-- CSV / spreadsheet import
+- CSV / spreadsheet import scripts
 - batch listing generation scripts
 - image prompt presets by category
 - category-specific reply packs
 - publishing payload adapters for marketplace tools
+- conversation-state handling for inquiry follow-up

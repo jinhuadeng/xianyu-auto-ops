@@ -1,13 +1,13 @@
 ---
 name: xianyu-auto-ops
-description: Bilingual Xianyu (闲鱼) listing and lightweight operations workflow for second-hand goods, side-hustle products, and marketplace distribution. Use when the user wants to create, optimize, or batch-produce Xianyu listing assets such as titles, selling points, product descriptions, image prompts, reply scripts, pricing angles, posting checklists, or simple operating SOPs in Chinese and English. Also use when the user asks to turn product info into publish-ready marketplace materials or wants a reusable Xianyu sales process.
+description: Bilingual Xianyu (闲鱼) listing and lightweight operations workflow for second-hand goods, side-hustle products, and marketplace distribution. Use when the user wants to create, optimize, or batch-produce Xianyu listing assets such as titles, selling points, product descriptions, image prompts, reply scripts, pricing angles, posting checklists, or simple operating SOPs in Chinese and English. Also use when the user asks to turn product info into publish-ready marketplace materials, wants category-specific Xianyu templates, needs buyer chat replies, or wants a reusable batch-oriented Xianyu sales process.
 ---
 
 # Xianyu Auto Ops
 
 Use this skill to turn rough product information into a repeatable **Xianyu / Idle Fish operating package**.
 
-Default output language: **bilingual Chinese + English**.
+Default output language: **bilingual Chinese + English**.  
 Default business goal: **faster listing, clearer positioning, better inquiry conversion**.
 
 ## Core workflow
@@ -23,8 +23,17 @@ Follow this sequence unless the user asks for only one part.
    - **Batch listing mode**: multiple SKUs, concise per-item outputs.
    - **Reply mode**: buyer inquiry handling, objection answers, negotiation copy.
    - **Optimization mode**: improve an existing listing.
+   - **Poster mode**: generate ad-style image prompts for listing cover or off-platform promo.
 
-3. **Produce the listing package**
+3. **Pick a category template**
+   Use the closest category framing:
+   - **Digital / 数码**: specs, condition, accessories, battery, warranty, authenticity cues.
+   - **Home / 家居**: size, cleanliness, usage marks, pickup logistics, scene fit.
+   - **Fashion / 服饰**: size, fabric, season, flaws, try-on expectation.
+   - **Virtual / 虚拟产品或服务**: delivery scope, usage rights, support boundaries, trust language.
+   - **Training / Side-hustle products**: results, delivery format, onboarding, target audience.
+
+4. **Produce the listing package**
    Return, in this order when relevant:
    - Chinese title ×3
    - English title ×1
@@ -37,10 +46,28 @@ Follow this sequence unless the user asks for only one part.
    - Buyer reply scripts
    - Posting checklist
 
-4. **Keep it platform-native**
+5. **Keep it platform-native**
    - Prefer short, direct, benefit-led copy.
    - Avoid exaggerated claims that sound fake or risky.
    - Make the listing feel like a real seller wrote it, not a brand brochure.
+
+## Batch listing mode
+
+When the user gives multiple items, default to a compact table-like structure using bullets, not markdown tables on chat surfaces.
+
+For each SKU, include:
+- SKU / item name
+- Chinese title ×2
+- One short Chinese description
+- One short English summary
+- Suggested listed price / expected close price
+- One key reply note
+- One image direction
+
+If the user provides spreadsheet-like rows, normalize them mentally into:
+`name | category | condition | price target | flaws | accessories | city | delivery`
+
+Do not ask the user to perfect the data before starting. Fill gaps with assumptions and mark them.
 
 ## Output rules
 
@@ -89,9 +116,18 @@ When generating reply scripts, include short ready-to-send messages for:
 - “最低多少？” / “What’s your lowest price?”
 - “有瑕疵吗？” / “Any flaws?”
 - “包邮吗？” / “Is shipping included?”
+- “怎么交易更稳妥？” / “How do we trade safely?”
 - closing push / 成交推进
 
 Keep replies short and human.
+
+### Poster prompts
+
+When the user asks for ad visuals, output two prompt layers:
+- **Platform-safe cover prompt**: more realistic, cleaner, product-led.
+- **Promotional poster prompt**: more visual tension, more marketing feel, more negative space for title text.
+
+Prefer **16:9** for article covers and **1:1 / 4:5** for feed-like visuals unless the user says otherwise.
 
 ## Recommended response format
 
@@ -118,7 +154,8 @@ Use this template unless the user asks for a different one.
 ### 5. 配图建议 / Image Plan
 - Cover idea:
 - Detail shots:
-- Optional AI image prompt:
+- Platform-safe AI image prompt:
+- Promotional poster prompt:
 
 ### 6. 价格建议 / Pricing Strategy
 - Listed price:
@@ -129,6 +166,7 @@ Use this template unless the user asks for a different one.
 - 在的 / Available:
 - 最低价 / Lowest price:
 - 瑕疵说明 / Flaw disclosure:
+- 安全交易 / Safe trade:
 - 成交推进 / Closing push:
 
 ### 8. 发布清单 / Posting Checklist
@@ -137,6 +175,7 @@ Use this template unless the user asks for a different one.
 - [ ] delivery method stated
 - [ ] keywords included
 - [ ] price strategy set
+- [ ] reply script ready
 
 ## Bilingual handling
 
@@ -152,7 +191,8 @@ When the user asks for bilingual output, do not translate mechanically.
 - Do not hide material defects if the user explicitly mentions them.
 - Do not promise impossible delivery times.
 - Flag risky categories, compliance-sensitive products, or obvious fraud patterns.
+- For virtual goods or services, clearly describe what is and is not delivered.
 
 ## References
 
-If the user wants stronger marketplace results, read `references/playbook.md` for reusable listing patterns, reply templates, and prompt formulas.
+Read `references/playbook.md` when the user needs stronger title formulas, batch handling, category-specific patterns, buyer reply banks, or poster prompt templates.
